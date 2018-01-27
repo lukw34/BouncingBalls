@@ -1,0 +1,23 @@
+.root {
+    display: flex;
+}
+
+.admin {
+    margin-left: 20px;
+}
+
+.root .admin button {
+    height: 40px;
+    width: 90%;
+    margin: 5px 0;
+}
+
+.root .admin input {
+    height: 30px;
+    width: 80%;
+    margin: 5px 0;
+}
+
+.theory {
+    margin: 20px;
+}

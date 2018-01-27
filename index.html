@@ -2,10 +2,39 @@
 <html lang="en">
 <head>
     <script src="./vanilla.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
 </head>
 <body>
-    <canvas id="canvas" width="600" height="600" style="border:1px solid #000000;">
-    <script src="./js/arkanoid.js"></script>
-</canvas>
+<div class="root">
+    <canvas id="canvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
+    <div class="admin">
+        <h3>Admin Panel</h3>
+        <button id="start-button" type="button">Start Animation</button>
+        <button id="stop-button" type="button">Stop Animation</button>
+        <input id="x-velocity" title="X direction" value="10" min="-50" max="50" type="number">
+        <input id="y-velocity" title="Y direction" value="10" min="-50" max="50" type="number">
+    </div>
+</div>
+<div class="theory hidden">
+    <h4>Bouncing Ball (Arkanoid)</h4>
+    <p>Algorytm opiera sie na sprawdzaniu, czy nastąpiła kolizja.</p>
+    <p>Procedura sprawdzania kolizji jest następująca (gdzie x1,x2,y1,y2 to współrzędne bloku, z którym jest sprawdzana
+        kolizja,size to promień a i x,y współrzędne piłki): Jeżeli (x+xspeed+size >= x1 oraz x+xspeed-size <= x2) i
+        (y+yspeed+size >= y1 oraz y+yspeed-size <= y2) to wtedy zaistnieje zdarzenie kolizji po którym musimy określić z
+        którą ścianą nastąpiło to zdarzenie.</p>
+    <ul>
+        <li>Jeżeli (x+size < x1 oraz x+xspeed+size >= x1) to zaistniała kolizja ze scianą w poziomie(oś x)</li>
+        <li>Jeżeli (x-size > x2 oraz x+xspeed-size <= x2) to zaistniała kolizja ze scianą w poziomie(oś x)</li>
+        <li>Jeżeli (y+size < y1 oraz y+yspeed+size >= y1) to zaistniała kolizja ze scianą w pionie(oś y)</li>
+        <li>Jeżeli (y-size > y2 oraz y+yspeed-size <= y2) to zaistniała kolizja ze scianą w pionie(oś y)</li>
+    </ul>
+
+    <p>Gdy nastąpi kolizja w zależności od osi zmieniamy znak przy xspeed lub yspeed, aby piłka poruszała się w przeciwną
+    stronę. Czyli postępujemy według znanej zasady - kąt padania równa się kątowi odbicia.
+    </p>
+
+</div>
+<script src="js/index.js"></script>
 </body>
 </html>
